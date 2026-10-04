@@ -1,0 +1,39 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "joji-gym-admin",
+          "appId": "1:1028297714447:android:4c37ac4a270a01c101ec7a",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "joji-gym-admin",
+          "configurations": {
+            "android": "1:1028297714447:android:4c37ac4a270a01c101ec7a",
+            "ios": "1:1028297714447:ios:4d8f00ac6f981b1201ec7a",
+            "macos": "1:1028297714447:ios:4d8f00ac6f981b1201ec7a",
+            "web": "1:1028297714447:web:6e3ce4a8382b11ec01ec7a",
+            "windows": "1:1028297714447:web:0f9646232b89d73501ec7a"
+          }
+        }
+      }
+    }
+  },
+  "hosting": {
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

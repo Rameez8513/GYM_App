@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1028297714447",
+    "project_id": "joji-gym-admin",
+    "storage_bucket": "joji-gym-admin.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1028297714447:android:4c37ac4a270a01c101ec7a",
+        "android_client_info": {
+          "package_name": "com.example.admin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYZpx2XtfI6Y5K9unzatNc-90ainrAQrU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
