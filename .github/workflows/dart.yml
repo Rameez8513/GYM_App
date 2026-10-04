@@ -4,47 +4,22 @@ on:
 
 jobs:
   build-ios:
-    name: 🎉 iOS Build
     runs-on: macos-latest
+
     steps:
       - uses: actions/checkout@v3
-      
+
       - uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
           architecture: x64
-      
-      - name: Install dependencies
+
+      - name: Install Flutter dependencies
         run: flutter pub get
 
-      - name: Update CocoaPods
+      - name: Install CocoaPods
         run: pod repo update
         working-directory: ios
-      
-      - name: Build iOS app without code signing
-        run: flutter build ios --release --no-codesign
-      
-      - name: Create Payload directory
-        run: mkdir -p build/ios/iphoneos/Payload
-        working-directory: .
-      
-      - name: Copy app to Payload
-        run: cp -r build/ios/iphoneos/Runner.app build/ios/iphoneos/Payload/
-        working-directory: .
-      
-      - name: Copy GoogleService-Info.plist
-        run: cp ios/Runner/GoogleService-Info.plist build/ios/iphoneos/Payload/Runner.app/GoogleService-Info.plist
-        continue-on-error: true
-      
-      - name: Create IPA (zip Payload)
-        run: cd build/ios/iphoneos && zip -r -q FlutterIpaExport.ipa Payload/
-      
-      - name: Upload IPA to release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: build/ios/iphoneos/FlutterIpaExport.ipa
-          tag_name: v1.0
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build for iOS simulator
+        run: flutter build ios --release --simulator
